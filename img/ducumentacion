@@ -1,0 +1,37 @@
+Travel Agency Web
+Descripción
+
+Sistema web de una agencia de viajes desarrollado como proyecto académico.
+Permite visualizar paquetes turísticos, ver detalles de destinos y simular reservas.
+
+Objetivo
+
+Desarrollar una aplicación web utilizando HTML, CSS y JavaScript, aplicando buenas prácticas de diseño,
+estructura y trabajo en equipo.
+
+Arquitectura
+
+El sistema sigue una arquitectura modular basada en separación de responsabilidades:
+
+HTML → estructura
+CSS → estilos
+JavaScript → lógica
+data.js → simulación de base de datos
+
+Esto permite escalar fácilmente a tecnologías backend como PHP y MySQL.
+
+Estructura del Proyecto
+index.html → Página principal
+paquetes.html → Listado de viajes
+detalle.html → Información detallada
+contacto.html → Formulario
+admin.html → Panel simulado
+Equipo
+Líder de Proyecto
+UX/UI Designer
+Frontend Developers
+JavaScript Developer
+QA / Documentador
+Estado del Proyecto
+
+En desarrollo (LAB 1)

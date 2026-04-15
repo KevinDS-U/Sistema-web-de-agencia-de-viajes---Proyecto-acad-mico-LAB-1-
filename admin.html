@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/adminE.css">
     <title>Administrador</title>
     <!--
     Archivo: admin.html
@@ -9,6 +10,43 @@
     -->
 </head>
 <body>
+<script>
+    const usuario = prompt("Usuario:");
+    const password = prompt("Contraseña:");
+
+    if (usuario !== "AdGS134" || password !== "grupo72026") {
+        alert("Acceso denegado ");
+        window.location.href = "paquetes.html"; // o index.html
+    }
+</script>
+<h1 style="text-align:center;"> Panel de Administración</h1>
+
+<div id="reservas"></div>
+
+<script>
+    const contenedor = document.getElementById("reservas");
+
+    // Obtener reservas
+    let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+
+    if (reservas.length === 0) {
+        contenedor.innerHTML = "<p>No hay reservas aún </p>";
+    } else {
+        reservas.forEach(r => {
+            contenedor.innerHTML += `
+        <div class="card-admin">
+          <h3>${r.destino}</h3>
+          <p><strong>Nombre:</strong> ${r.nombre}</p>
+          <p><strong>Email:</strong> ${r.email}</p>
+          <p><strong>Teléfono:</strong> ${r.telefono}</p>
+          <p><strong>Fecha:</strong> ${r.fecha}</p>
+          <p><strong>Personas:</strong> ${r.personas}</p>
+          <p><strong>Notas:</strong> ${r.notas}</p>
+        </div>
+      `;
+        });
+    }
+</script>
 
 </body>
 </html>

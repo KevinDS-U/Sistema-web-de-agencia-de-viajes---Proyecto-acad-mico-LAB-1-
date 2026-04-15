@@ -19,7 +19,7 @@ const paquetes = [
         id: 2,
         destino: "Bocas del Toro",
         provincia: "Bocas del Toro",
-        precio: 200,
+        precio: 375,
         dias: 4,
         descripcion: "Vive una experiencia caribeña única en Bocas del Toro con playas de arena blanca, aguas cristalinas, vida nocturna y actividades como snorkel y tours en lancha.",
         transporte: ["Avión", "Lancha"],

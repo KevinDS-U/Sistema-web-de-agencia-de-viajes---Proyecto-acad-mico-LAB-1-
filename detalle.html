@@ -10,8 +10,96 @@
 
     Autor: Equipo de desarrollo
     -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
+  <div class="container">
+        <!-- IMAGEN DEL DESTINO -->
+        <img id="imagen" alt="Imagen del destino turístico" class="imagen-destino">
+        
+        <!-- TÍTULO Y DESCRIPCIÓN -->
+        <h1>Destino Turístico Increíble</h1>
+        
+        <p class="descripcion">
+            Bienvenido a este hermoso destino. Aquí encontrarás playas paradisíacas, 
+            paisajes increíbles y una experiencia inolvidable. Nuestro paquete incluye 
+            transporte, hospedaje y tours guiados para que disfrutes al máximo.
+        </p>
+        
+        <!-- INFORMACIÓN DEL VIAJE -->
+        <div class="info-viaje">
+            <p><strong>Destino:</strong></p><p id="destino"> </p>
+            <p><strong>Provincia:</strong></p><p id="provincia"> </p>
+            <p><strong>Precio:</strong></p><p id="precio"></p></p>
+            <p><strong>Días:</strong></p><p id="transporte"> </p>
+            <p><strong>Descripción:</strong></p><p id="descripcion"> </p>
+            
+        </div>
+        
+        <!-- BOTÓN PARA ABRIR EL FORMULARIO -->
+        <button class="boton-reservar" onclick="abrirFormulario()">Reservar Ahora</button>
+    </div>
+    
+    <!-- MODAL CON EL FORMULARIO -->
+    <div id="modalFormulario" class="modal">
+        <div class="modal-content">
+            <span class="cerrar" onclick="cerrarFormulario()">&times;</span>
+            
+            <h2>Formulario de Reserva</h2>
+            
+            <form class="formulario">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+                
+                <label for="fecha">Fecha de Viaje:</label>
+                <input type="date" id="fecha" name="fecha" required>
+                
+                <label for="personas">Número de Personas:</label>
+                <input type="number" id="personas" name="personas" min="1" required>
+                
+                <label for="notas">Notas Adicionales:</label>
+                <textarea id="notas" name="notas" rows="4" placeholder="Cuéntanos si tienes alguna solicitud especial..."></textarea>
+                
+                <div class="botones-form">
+                    <button type="submit" class="btn-enviar">Enviar Reserva</button>
+                    <button type="button" class="btn-cancelar" onclick="cerrarFormulario()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- SCRIPT PARA ABRIR/CERRAR EL MODAL -->
+    <script src="js/data.js"></script>
+    <script>
+        document.getElementById("imagen").src = paquetes[1].imagen;
+        document.getElementById("titulo").textContent = paquetes[1].nombre;
+        document.getElementById("descripcion").textContent = paquetes[1].descripcion;
+        document.getElementById("precio").textContent = paquetes[1].precio;
+        document.getElementById("transporte").textContent = paquetes[1].transporte;
+        document.getElementById("destino").textContent = paquetes[1].destino;
+    </script>
+    <script>
+        function abrirFormulario() {
+            document.getElementById("modalFormulario").style.display = "block";
+        }
+        
+        function cerrarFormulario() {
+            document.getElementById("modalFormulario").style.display = "none";
+        }
+        
+        // Cerrar el modal si haces clic fuera de él
+        window.onclick = function(event) {
+            let modal = document.getElementById("modalFormulario");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>

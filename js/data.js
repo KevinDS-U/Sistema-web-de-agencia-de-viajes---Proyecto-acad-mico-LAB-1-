@@ -94,6 +94,5 @@ const usuarios = [
         id: 1,
         username: "AdGS134",
         password: "grupo72026",
-        rol: "administrador"
     }
 ];

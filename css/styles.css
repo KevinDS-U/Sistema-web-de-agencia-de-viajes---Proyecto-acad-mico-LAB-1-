@@ -163,3 +163,90 @@
         .btn-cancelar:hover {
             background-color: #5a6268;
         }
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+        }
+        
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .tarjeta-perfil {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .tarjeta-perfil:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .foto-perfil {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid #007bff;
+        }
+        
+        .tarjeta-perfil h2 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.5em;
+        }
+        
+        .tarjeta-perfil .apellido {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .info-perfil {
+            text-align: left;
+            margin: 15px 0;
+        }
+        
+        .info-perfil p {
+            color: #555;
+            margin: 10px 0;
+            font-size: 0.95em;
+            word-break: break-word;
+        }
+        
+        .info-perfil strong {
+            color: #333;
+        }
+        
+        .divider {
+            border-top: 1px solid #ddd;
+            margin: 15px 0;
+        }

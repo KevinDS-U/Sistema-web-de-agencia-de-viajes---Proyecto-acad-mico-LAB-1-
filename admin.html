@@ -11,7 +11,15 @@
     -->
 </head>
 <body>
+<script>
+    const usuario = prompt("Usuario:");
+    const password = prompt("Contraseña:");
 
+    if (usuario !== "utpds7" || password !== "1gs134") {
+        alert("Acceso denegado ");
+        window.location.href = "index.html"; // o index.html
+    }
+</script>
 <!-- ══════════════ NAVBAR ══════════════ -->
 <nav id="navbar">
     <a href="index.html" class="nav-logo">

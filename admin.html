@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/adminE.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>Administrador</title>
     <!--
     Archivo: admin.html
@@ -10,16 +11,21 @@
     -->
 </head>
 <body>
-<script>
-    const usuario = prompt("Usuario:");
-    const password = prompt("Contraseña:");
 
-    if (usuario !== "AdGS134" || password !== "grupo72026") {
-        alert("Acceso denegado ");
-        window.location.href = "paquetes.html"; // o index.html
-    }
-</script>
-<h1 style="text-align:center;"> Panel de Administración</h1>
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav id="navbar">
+    <a href="index.html" class="nav-logo">
+        <span>🗺️</span> Panamá Turismo
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="paquetes.html">Paquetes</a></li>
+        <li><a href="detalle.html">Detalles</a></li>
+        <li><a href="contacto.html">Sobre Nosotros</a></li>
+    </ul>
+    <a href="admin.html" class="nav-admin">Admin/In ↗</a>
+</nav>
+<h1 style="text-align:center;"> Lista de Paquetes Reseravados</h1>
 
 <div id="reservas"></div>
 
@@ -47,6 +53,17 @@
         });
     }
 </script>
-
+<footer>
+    <div class="footer-logo">🗺️ Panamá Turismo</div>
+    <p class="footer-copy">© 2025 Panamá Turismo. Todos los derechos reservados.</p>
+    <div class="footer-social">
+        <a href="#" title="Facebook">f</a>
+        <a href="#" title="Instagram">ig</a>
+        <a href="#" title="Twitter">tw</a>
+    </div>
+</footer>
+<!-- SCRIPT PARA ABRIR/CERRAR EL MODAL -->
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

@@ -1,17 +1,234 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
-    <!--
-    Archivo: index.html
-    Descripción: Página principal del sistema.
-    Contiene la bienvenida, navegación y acceso a las principales secciones.
-    Fecha: 11/4/2026
-     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panamá Turismo – Desde el corazón del mundo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav id="navbar">
+    <a href="index.html" class="nav-logo">
+        <span>🗺️</span> Panamá Turismo
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="paquetes.html">Paquetes</a></li>
+        <li><a href="detalle.html">Detalles</a></li>
+        <li><a href="contacto.html">Sobre Nosotros</a></li>
+    </ul>
+    <a href="admin.html" class="nav-admin">Admin/In ↗</a>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section id="inicio">
+    <div class="hero-bg"></div>
+    <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80" alt="Panamá paisaje">
+    </div>
+    <div class="hero-content">
+        <p class="hero-eyebrow">✦ Agencia de viajes panameña</p>
+        <h1 class="hero-title">PANAMÁ</h1>
+        <p class="hero-subtitle">Desde el corazón del mundo</p>
+        <div class="hero-btns">
+            <a href="paquetes.html" class="btn-primary">🌴 Ver Paquetes</a>
+            <a href="contacto.html" class="btn-outline">Contáctanos</a>
+        </div>
+        <div class="hero-tags">
+            <span class="hero-tag active">Destacados</span>
+            <span class="hero-tag">Nuevos</span>
+            <span class="hero-tag">Más Vendidos</span>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ DESTINOS DESTACADOS ══════════════ -->
+<section id="destinos">
+    <div class="section-header">
+        <div>
+            <p class="section-eyebrow">Destinos Destacados</p>
+            <h2 class="section-title">Lugares que no se explican,<br>Destinos Destacados</h2>
+            <p class="section-sub">Descubre nuestra selección exclusiva</p>
+        </div>
+        <a href="paquetes.html" class="btn-ver-todos">Ver todos los destinos</a>
+    </div>
+    <div class="destinos-grid">
+        <a href="paquetes.html" class="destino-card">
+            <div class="destino-img">
+                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Bocas del Toro">
+                <span class="destino-badge nuevo">Nuevo</span>
+            </div>
+            <div class="destino-info">
+                <h3>Bocas del Toro</h3>
+                <p class="destino-precio">Desde $299 <span>/ persona</span></p>
+            </div>
+        </a>
+        <a href="paquetes.html" class="destino-card">
+            <div class="destino-img">
+                <img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=600&q=80" alt="Casco Antiguo">
+                <span class="destino-badge vendido">Más Vendido</span>
+            </div>
+            <div class="destino-info">
+                <h3>Casco Antiguo</h3>
+                <p class="destino-precio">Desde $199 <span>/ persona</span></p>
+            </div>
+        </a>
+        <a href="paquetes.html" class="destino-card">
+            <div class="destino-img">
+                <img src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=600&q=80" alt="Portobelo">
+                <span class="destino-badge popular">Popular</span>
+            </div>
+            <div class="destino-info">
+                <h3>Portobelo</h3>
+                <p class="destino-precio">Desde $149 <span>/ persona</span></p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- ══════════════ PAQUETES / OFERTAS ══════════════ -->
+<section id="paquetes">
+    <div class="section-header">
+        <div>
+            <p class="section-eyebrow">Paquetes / Ofertas</p>
+            <h2 class="section-title">Nuestros Paquetes</h2>
+            <p class="section-sub">Compara planes y precios</p>
+        </div>
+        <a href="paquetes.html" class="btn-ver-todos">Ver todos</a>
+    </div>
+    <div class="paquetes-grid">
+        <div class="paquete-card">
+            <div class="paquete-foto">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="Básico">
+            </div>
+            <div class="paquete-body">
+                <p class="paquete-tipo">Plan Básico</p>
+                <h3 class="paquete-nombre">Hospedaje + Traslados</h3>
+                <p class="paquete-desc">Incluye hospedaje en hotel seleccionado y traslados desde/hacia el aeropuerto.</p>
+                <p class="paquete-precio">$499</p>
+                <p class="paquete-precio-sub">por persona · 3 días</p>
+                <a href="paquetes.html" class="btn-paquete">Explorar</a>
+            </div>
+        </div>
+        <div class="paquete-card destacado">
+            <span class="paquete-label">⭐ Estándar</span>
+            <div class="paquete-foto">
+                <img src="https://images.unsplash.com/photo-1551918120-9739cb430c6d?w=600&q=80" alt="Estándar">
+            </div>
+            <div class="paquete-body">
+                <p class="paquete-tipo">Plan Estándar</p>
+                <h3 class="paquete-nombre">+ Guía + Tours</h3>
+                <p class="paquete-desc">Además del hospedaje y traslados, incluye guía local y tours a los principales atractivos.</p>
+                <p class="paquete-precio">$799</p>
+                <p class="paquete-precio-sub">por persona · 5 días</p>
+                <a href="paquetes.html" class="btn-paquete">Explorar</a>
+            </div>
+        </div>
+        <div class="paquete-card">
+            <div class="paquete-foto">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Premium">
+            </div>
+            <div class="paquete-body">
+                <p class="paquete-tipo">Plan Premium</p>
+                <h3 class="paquete-nombre">Todo Incluido</h3>
+                <p class="paquete-desc">La experiencia completa: hospedaje 5 estrellas, gastronomía, tours exclusivos y más.</p>
+                <p class="paquete-precio">$1,299</p>
+                <p class="paquete-precio-sub">por persona · 7 días</p>
+                <a href="paquetes.html" class="btn-paquete">Explorar</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ BLOG / NOTICIAS ══════════════ -->
+<section id="blog">
+    <div class="section-header">
+        <div>
+            <p class="section-eyebrow">Noticias / Blog</p>
+            <h2 class="section-title">Lo Último de Panamá</h2>
+            <p class="section-sub">Mantente al tanto de nuestros artículos</p>
+        </div>
+        <a href="#" class="btn-ver-todos">Leer más</a>
+    </div>
+    <div class="blog-grid">
+        <a href="#" class="blog-card">
+            <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=300&q=80" alt="Turismo">
+            </div>
+            <div class="blog-body">
+                <p class="blog-fecha">Ene • 2025</p>
+                <h3 class="blog-titulo">El futuro del turismo en Panamá</h3>
+                <p class="blog-extracto">Explora lo que depara el turismo sostenible para nuestro país en los próximos años...</p>
+            </div>
+        </a>
+        <a href="#" class="blog-card">
+            <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&q=80" alt="Sostenibilidad">
+            </div>
+            <div class="blog-body">
+                <p class="blog-fecha">Feb • 2025</p>
+                <h3 class="blog-titulo">Sostenibilidad en los destinos</h3>
+                <p class="blog-extracto">Descubre cómo cuidamos el medio ambiente mientras ofrecemos experiencias únicas...</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- ══════════════ TESTIMONIOS ══════════════ -->
+<section id="testimonios">
+    <div class="section-header">
+        <div>
+            <p class="section-eyebrow">Testimonios</p>
+            <h2 class="section-title">Lo que dicen nuestros viajeros</h2>
+            <p class="section-sub">Opiniones de quienes ya viajaron con nosotros</p>
+        </div>
+    </div>
+    <div class="testi-grid">
+        <div class="testi-card">
+            <span class="testi-quote">"</span>
+            <p class="testi-stars">★★★★★</p>
+            <p class="testi-texto">Me encantó el nuevo paquete a Bocas, ¡increíble! La organización fue perfecta y el guía era muy conocedor del lugar.</p>
+            <div class="testi-autor">
+                <div class="testi-avatar">A</div>
+                <div>
+                    <p class="testi-nombre">Alice M.</p>
+                    <p class="testi-pais">🇵🇦 Panamá</p>
+                </div>
+            </div>
+        </div>
+        <div class="testi-card">
+            <span class="testi-quote">"</span>
+            <p class="testi-stars">★★★★★</p>
+            <p class="testi-texto">La mejor compra que he hecho, sin duda vuelvo. El paquete premium superó todas mis expectativas, totalmente recomendado.</p>
+            <div class="testi-autor">
+                <div class="testi-avatar" style="background:var(--verde)">B</div>
+                <div>
+                    <p class="testi-nombre">Bob R.</p>
+                    <p class="testi-pais">🇨🇴 Colombia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+    <div class="footer-logo">🗺️ Panamá Turismo</div>
+    <p class="footer-copy">© 2025 Panamá Turismo. Todos los derechos reservados.</p>
+    <div class="footer-social">
+        <a href="#" title="Facebook">f</a>
+        <a href="#" title="Instagram">ig</a>
+        <a href="#" title="Twitter">tw</a>
+    </div>
+</footer>
+
+<!-- JS al final del body -->
+<script src="js/app.js"></script>
 
 </body>
 </html>

@@ -1,14 +1,25 @@
 /* Fondo general */
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    background: linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+    padding-top: 100px;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1f2937;
+    font-size: 28px;
+    letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
 }
 
 /* Contenedor */
 #reservas {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 30px;
     padding: 30px;
     justify-content: center;
 }
@@ -16,40 +27,59 @@ body {
 /* Tarjetas modernas */
 .card-admin {
     width: 320px;
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     transition: all 0.3s ease;
     position: relative;
+    overflow: hidden;
 }
 
-/* Efecto hover */
-.card-admin:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-}
-
-/* Título */
-.card-admin h3 {
-    color: #007BFF;
-    margin-bottom: 10px;
-}
-
-/* Texto */
-.card-admin p {
-    margin: 6px 0;
-    font-size: 14px;
-}
-
-/* Línea decorativa */
+/* Línea superior elegante */
 .card-admin::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 5px;
+    height: 6px;
     background: linear-gradient(90deg, #007BFF, #00c6ff);
-    border-radius: 15px 15px 0 0;
+}
+
+/* Hover PRO */
+.card-admin:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+}
+
+/* Título */
+.card-admin h3 {
+    color: #007BFF;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+/* Texto */
+.card-admin p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #374151;
+}
+
+/* Labels (negritas) */
+.card-admin strong {
+    color: #111827;
+}
+
+/* Efecto separador */
+.card-admin p:not(:last-child) {
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 5px;
+}
+
+/* Mensaje vacío */
+#reservas p {
+    font-size: 18px;
+    color: #6b7280;
 }

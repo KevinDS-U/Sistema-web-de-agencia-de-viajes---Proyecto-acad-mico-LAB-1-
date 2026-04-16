@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>Detalles</title>
     <!--
     Archivo: detalle.html
@@ -13,6 +14,19 @@
     -->
 </head>
 <body>
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav id="navbar">
+    <a href="index.html" class="nav-logo">
+        <span>🗺️</span> Panamá Turismo
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="paquetes.html">Paquetes</a></li>
+        <li><a href="detalle.html">Detalles</a></li>
+        <li><a href="contacto.html">Sobre Nosotros</a></li>
+    </ul>
+    <a href="admin.html" class="nav-admin">Admin/In ↗</a>
+</nav>
 <div class="container">
     <!-- IMAGEN DEL DESTINO -->
     <img id="imagen" alt="Imagen del destino turístico" class="imagen-destino">
@@ -69,9 +83,18 @@
         </form>
     </div>
 </div>
-
+<footer>
+    <div class="footer-logo">🗺️ Panamá Turismo</div>
+    <p class="footer-copy">© 2025 Panamá Turismo. Todos los derechos reservados.</p>
+    <div class="footer-social">
+        <a href="#" title="Facebook">f</a>
+        <a href="#" title="Instagram">ig</a>
+        <a href="#" title="Twitter">tw</a>
+    </div>
+</footer>
 <!-- SCRIPT PARA ABRIR/CERRAR EL MODAL -->
 <script src="js/data.js"></script>
+<script src="js/app.js"></script>
 <script>
     const id = localStorage.getItem("paqueteId");
     const paquete = paquetes.find(p => p.id == id);

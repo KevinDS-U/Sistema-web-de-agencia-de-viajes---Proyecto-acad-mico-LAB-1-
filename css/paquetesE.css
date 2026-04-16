@@ -1,6 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    padding-top: 40px;
+}
+h1{
+    color: white;
 }
 
 .contenedor {
@@ -43,7 +47,7 @@ body {
     margin: 10px;
     padding: 10px;
     width: 90%;
-    background: #007BFF;
+    background-color: #4059f9;
     color: white;
     border: none;
     border-radius: 5px;

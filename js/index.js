@@ -1,7 +1,7 @@
 /**
  * Archivo: js/index.js
  * Descripción: Lógica e interactividad de la página principal (index.html)
- * Autor: Melany G. (Frontend 3)
+ * Autor: Melany G.
  */
 
 /* ══════════════════════════════════════════
@@ -110,5 +110,29 @@ navLinks.forEach(function (link) {
                 destino.scrollIntoView({ behavior: "smooth" });
             }
         }
-    });
+    });    
+    
 });
+
+
+/* ══════════════════════════════════════════
+   6. FOOTER — Newsletter
+══════════════════════════════════════════ */
+
+const newsletterForm = document.querySelector(".newsletter-form");
+const newsletterThanks = document.getElementById("newsletter-thanks");
+
+if (newsletterForm) {
+    newsletterForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Ocultar formulario
+        newsletterForm.style.display = "none";
+
+        // Mostrar mensaje de agradecimiento
+        if (newsletterThanks) {
+            newsletterThanks.style.display = "block";
+        }
+    });
+}
+

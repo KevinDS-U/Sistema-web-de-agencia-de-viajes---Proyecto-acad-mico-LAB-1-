@@ -1,14 +1,338 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Administrador</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Panel de Administración - Viajes Panamá</title>
+    <link rel="stylesheet" href="css/adminE.css">
+    <!-- librería de íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!--
-    Archivo: admin.html
-    Descripción: Panel administrativo simulado para visualizar reservas.
+   
     -->
+    <style>
+        .overlay-login {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(145deg, #001f52, #0057b8);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            padding: 42px 38px;
+            width: 100%;
+            max-width: 390px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            text-align: center;
+        }
+
+        .login-icono {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #0066cc;
+        }
+
+        .login-card h2 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #0e1f45;
+            margin-bottom: 6px;
+        }
+
+        .login-card>p {
+            color: #888;
+            font-size: 0.88rem;
+            margin-bottom: 28px;
+        }
+
+        .login-grupo {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .login-grupo label {
+            display: block;
+            font-size: 0.83rem;
+            font-weight: 600;
+            color: #3c3c3c;
+            margin-bottom: 6px;
+        }
+
+        .login-grupo input {
+            width: 100%;
+            padding: 11px 15px;
+            border: 2px solid #e5e8f0;
+            border-radius: 10px;
+            font-size: 0.92rem;
+            font-family: inherit;
+            background: #fafbfc;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-sizing: border-box;
+        }
+
+        .login-grupo input:focus {
+            outline: none;
+            border-color: #0066cc;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+        }
+
+        /* Campo contraseña con botón "ver" */
+        .campo-pass {
+            position: relative;
+        }
+
+        .campo-pass input {
+            padding-right: 44px;
+        }
+
+        .btn-ver-pass {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #999;
+            transition: color 0.2s;
+        }
+
+        .btn-ver-pass:hover {
+            color: #a2a2a2;
+        }
+
+        .btn-ingresar {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #0066cc, #002d6e);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-ingresar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+        }
+
+        .link-volver {
+            margin-top: 18px;
+            font-size: 0.83rem;
+        }
+
+        .link-volver a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .link-volver a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---- CONTENIDO DEL PANEL ---- */
+        #contenido-admin {
+            display: none;
+        }
+
+        .admin-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 30px 0;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .admin-header h1 {
+            font-size: 1.7rem;
+            color: #0e1f45;
+        }
+
+        .btn-limpiar {
+            background: #fff0f0;
+            color: #c0392b;
+            border: 1px solid #f5c6c6;
+            padding: 9px 20px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.25s;
+        }
+
+        .btn-limpiar:hover {
+            background: #dc3545;
+            color: white;
+            border-color: #dc3545;
+        }
+
+        .sin-reservas {
+            text-align: center;
+            padding: 50px 20px;
+            color: #888;
+            font-size: 1.05rem;
+        }
+
+        .card-admin-numero {
+            font-size: 0.75rem;
+            color: #aaa;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        /* ---- FONDO CELESTE DEL PANEL ---- */
+        body {
+            background: linear-gradient(160deg, #cce8ff, #e8f6ff, #f0faff);
+            min-height: 100vh;
+        }
+
+        #contenido-admin {
+            display: none;
+            background: linear-gradient(160deg, #cce8ff, #e8f6ff, #f0faff);
+            min-height: 100vh;
+        }
+    </style>
 </head>
+
 <body>
 
+    <!-- ======== OVERLAY DE LOGIN ======== -->
+    <div id="overlay-login" class="overlay-login">
+        <div class="login-card">
+            <div class="login-icono"><i class="fa-solid fa-lock"></i></div>
+            <h2>Acceso Administrativo</h2>
+            <p>Ingresa tus credenciales para ver las reservas</p>
+
+            <form id="form-login">
+                <div class="login-grupo">
+                    <label for="login-usuario">Usuario</label>
+                    <input type="text" id="login-usuario" placeholder="Ingresa tu usuario" required autofocus>
+                </div>
+
+                <div class="login-grupo">
+                    <label for="login-password">Contraseña</label>
+                    <div class="campo-pass">
+                        <input type="password" id="login-password" placeholder="Ingresa tu contraseña" required>
+                        <button type="button" class="btn-ver-pass" id="btn-ver-pass"
+                            title="Mostrar/ocultar contraseña"><i class="fa-regular fa-eye"
+                                id="icono-ver-pass"></i></button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-ingresar">Ingresar al Panel</button>
+            </form>
+
+            <p class="link-volver"><a href="paquetes.html">← Volver a paquetes</a></p>
+        </div>
+    </div>
+
+    <!-- ======== PANEL DE ADMINISTRACIÓN ======== -->
+    <div id="contenido-admin">
+        <div class="admin-header">
+            <h1><i class="fa-solid fa-clipboard-list"></i> Panel de Administración</h1>
+            <button class="btn-limpiar" id="btn-limpiar-admin"><i class="fa-solid fa-trash"></i> Limpiar todas las
+                reservas</button>
+        </div>
+        <div id="reservas"></div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script>
+
+        // ---- Lógica del formulario de login ----
+        document.getElementById('form-login').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const usuario = document.getElementById('login-usuario').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            // Verificar contra el array 'usuarios' definido en data.js
+            const usuarioValido = usuarios.find(function (u) {
+                return u.username === usuario && u.password === password;
+            });
+
+            if (usuarioValido) {
+                document.getElementById('overlay-login').style.display = 'none';
+                document.getElementById('contenido-admin').style.display = 'block';
+                cargarReservas();
+            } else {
+                alert('Usuario o contraseña incorrectos.');
+                document.getElementById('login-password').value = '';
+                document.getElementById('login-password').focus();
+            }
+        });
+
+        // ---- Botón mostrar / ocultar contraseña ----
+        document.getElementById('btn-ver-pass').addEventListener('click', function () {
+            const input = document.getElementById('login-password');
+            const icono = document.getElementById('icono-ver-pass');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icono.className = 'fa-regular fa-eye-slash';
+            } else {
+                input.type = 'password';
+                icono.className = 'fa-regular fa-eye';
+            }
+        });
+
+        // ---- Cargar y mostrar las reservas guardadas en localStorage ----
+        function cargarReservas() {
+            const contenedor = document.getElementById('reservas');
+            const reservas = JSON.parse(localStorage.getItem('reservas')) || [];
+
+            if (reservas.length === 0) {
+                contenedor.innerHTML = '<p class="sin-reservas"><i class="fa-solid fa-inbox"></i> No hay reservas registradas aún.</p>';
+                return;
+            }
+
+            contenedor.innerHTML = '';
+            reservas.forEach(function (r, index) {
+                contenedor.innerHTML += `
+                    <div class="card-admin">
+                        <div class="card-admin-numero">Reserva #${index + 1}</div>
+                        <h3>${r.destino}</h3>
+                        <p><strong><i class="fa-solid fa-user"></i> Nombre:</strong> ${r.nombre}</p>
+                        <p><strong><i class="fa-solid fa-envelope"></i> Email:</strong> ${r.email}</p>
+                        <p><strong><i class="fa-solid fa-phone"></i> Teléfono:</strong> ${r.telefono}</p>
+                        <p><strong><i class="fa-solid fa-calendar"></i> Fecha:</strong> ${r.fecha}</p>
+                        <p><strong><i class="fa-solid fa-users"></i> Personas:</strong> ${r.personas}</p>
+                        <p><strong><i class="fa-solid fa-note-sticky"></i> Notas:</strong> ${r.notas || 'Ninguna'}</p>
+                    </div>
+                `;
+            });
+        }
+
+        // ---- Limpiar todas las reservas ----
+        document.getElementById('btn-limpiar-admin').addEventListener('click', function () {
+            const reservas = JSON.parse(localStorage.getItem('reservas')) || [];
+            if (reservas.length === 0) {
+                alert('No hay reservas que eliminar.');
+                return;
+            }
+            if (confirm('¿Estás seguro de eliminar TODAS las reservas? Esta acción no se puede deshacer.')) {
+                localStorage.removeItem('reservas');
+                cargarReservas();
+                alert('Reservas eliminadas correctamente.');
+            }
+        });
+
+    </script>
+
 </body>
+
 </html>

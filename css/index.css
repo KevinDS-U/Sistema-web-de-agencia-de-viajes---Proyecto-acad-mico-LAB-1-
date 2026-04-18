@@ -916,6 +916,18 @@ section {
   padding: 3px 10px;
 }
 
+/* ─── ICONOS REDES SOCIALES ─── */
+.social-btn i {
+  font-size: 16px;   /* tamaño del icono */
+  line-height: 1;
+}
+
+/* Colores opcionales al pasar el mouse */
+.social-btn.facebook:hover { color: #1877f2; }
+.social-btn.instagram:hover { color: #e1306c; }
+.social-btn.tiktok:hover { color: #ffffff; }
+.social-btn.whatsapp:hover { color: #25D366; }
+
 /* ════════════════════════════════
    RESPONSIVE — MÓVIL
 ════════════════════════════════ */

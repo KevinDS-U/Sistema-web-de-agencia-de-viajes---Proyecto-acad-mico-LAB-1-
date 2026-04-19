@@ -17,6 +17,17 @@ window.addEventListener("scroll", function () {
     }
 });
 
+// Activa el link del navbar según la página actual
+const links = document.querySelectorAll('.nav-links a');
+const paginaActual = window.location.pathname.split('/').pop();
+
+links.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === paginaActual) {
+        link.classList.add('active');
+    }
+});
+
 /* ══════════════════════════════════════════
    2. HERO TAGS — Filtro visual (Destacados / Nuevos / Más Vendidos)
 ══════════════════════════════════════════ */

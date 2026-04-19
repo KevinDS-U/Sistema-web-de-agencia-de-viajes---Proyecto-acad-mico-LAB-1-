@@ -2,79 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/Detalle.Css">
     <link rel="stylesheet" href="css/index.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Detalles</title>
-    <!--
-    Archivo: detalle.html
-    Descripción: Muestra información detallada de un destino seleccionado.
-    Incluye descripción, transporte y opciones de reserva.
-
-    Autor: Equipo de desarrollo
-    -->
 </head>
 <body>
-    <!-- ══════════════ NAVBAR ══════════════ -->
+
+<!-- ══════════════ NAVBAR ══════════════ -->
 <nav id="navbar">
     <a href="index.html" class="nav-logo">
         <span>🗺️</span> Panamá Turismo
     </a>
     <ul class="nav-links">
-        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="index.html">Inicio</a></li>
         <li><a href="paquetes.html">Paquetes</a></li>
         <li><a href="detalle.html">Detalles</a></li>
         <li><a href="contacto.html">Sobre Nosotros</a></li>
     </ul>
     <a href="admin.html" class="nav-admin">Admin/In ↗</a>
 </nav>
+
 <div class="container">
-    <!-- IMAGEN DEL DESTINO -->
     <img id="imagen" alt="Imagen del destino turístico" class="imagen-destino">
 
-    <!-- TÍTULO Y DESCRIPCIÓN -->
+    <!-- id="titulo" agregadooo -->
     <h1 id="titulo"></h1>
 
     <p class="descripcion" id="descripcionGeneral"></p>
 
-    <!-- INFORMACIÓN DEL VIAJE -->
     <div class="info-viaje">
         <p><strong>Destino:</strong> <span id="destino"></span></p>
         <p><strong>Provincia:</strong> <span id="provincia"></span></p>
         <p><strong>Precio:</strong> <span id="precio"></span></p>
         <p><strong>Días:</strong> <span id="dias"></span></p>
-        <p><strong>Modalidad de Transporte:</strong> <span id="transporte"></span></p>
-
+        <p><strong>Transporte:</strong> <span id="transporte"></span></p>
+        <p><strong>Descripción:</strong> <span id="descripcion"></span></p>
     </div>
 
-    <!-- BOTÓN PARA ABRIR EL FORMULARIO -->
     <button class="boton-reservar" onclick="abrirFormulario()">Reservar Ahora</button>
 </div>
 
-<!-- MODAL CON EL FORMULARIO -->
+<!-- MODAL -->
 <div id="modalFormulario" class="modal">
     <div class="modal-content">
         <span class="cerrar" onclick="cerrarFormulario()">&times;</span>
-
         <h2>Formulario de Reserva</h2>
-
         <form class="formulario" onsubmit="guardarReserva(event)">
             <label for="nombre">Nombre Completo:</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <input type="text" id="nombre" required>
 
             <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" required>
 
             <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" required>
+            <input type="tel" id="telefono" required>
 
             <label for="fecha">Fecha de Viaje:</label>
-            <input type="date" id="fecha" name="fecha" required>
+            <input type="date" id="fecha" required>
 
             <label for="personas">Número de Personas:</label>
-            <input type="number" id="personas" name="personas" min="1" required>
+            <input type="number" id="personas" min="1" required>
 
             <label for="notas">Notas Adicionales:</label>
-            <textarea id="notas" name="notas" rows="4" placeholder="Cuéntanos si tienes alguna solicitud especial..."></textarea>
+            <textarea id="notas" rows="4" placeholder="Cuéntanos si tienes alguna solicitud especial..."></textarea>
 
             <div class="botones-form">
                 <button type="submit" class="btn-enviar">Enviar Reserva</button>
@@ -84,32 +75,154 @@
     </div>
 </div>
 
-<!-- SCRIPT PARA ABRIR/CERRAR EL MODAL -->
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="site-footer">
+ 
+  <div class="footer-inner">
+ 
+    <!-- Col 1 · Marca + Newsletter -->
+    <div class="footer-col footer-brand">
+      <a href="index.html" class="footer-logo">🗺️ Panamá Turismo</a>
+      <p class="footer-tagline">
+        Agencia panameña especializada en experiencias auténticas.
+        Conectamos viajeros con lo mejor del istmo desde 2018.
+      </p>
+      
+ <!-- REDES SOCIALES -->
+        <div class="footer-social">
+          <a href="https://www.facebook.com/?locale=es_LA" class="social-btn facebook" title="Facebook" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+
+          <a href="https://www.instagram.com/?hl=es" class="social-btn instagram" title="Instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <a href="https://www.tiktok.com/" class="social-btn tiktok" title="TikTok" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+
+          <a href="https://wa.me/50760000000" class="social-btn whatsapp" title="WhatsApp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+
+ 
+      <!-- Mini newsletter -->
+      <div class="footer-newsletter">
+        <p class="newsletter-label">Recibe ofertas y guías de viaje</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input type="email" placeholder="tu@correo.com" required aria-label="Correo electrónico">
+          <button type="submit">Suscribirse</button>
+        </form>
+        <p class="newsletter-thanks" id="newsletter-thanks" style="display:none;">¡Gracias! Te escribiremos pronto 🎉</p>
+      </div>
+    </div>
+ 
+    <!-- Col 2 · Páginas -->
+    <div class="footer-col">
+      <h3 class="footer-col-title">Explorar</h3>
+      <ul class="footer-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="paquetes.html">Paquetes</a></li>
+        <li><a href="detalle.html">Detalles</a></li>
+        <li><a href="contacto.html">Sobre Nosotros</a></li>
+        <li><a href="admin.html">Iniciar sesión</a></li>
+      </ul>
+    </div>
+ 
+    <!-- Col 3 · Destinos -->
+    <div class="footer-col">
+      <h3 class="footer-col-title">Destinos</h3>
+      <ul class="footer-links">
+        <li><a href="paquetes.html">Boquete</a></li>
+        <li><a href="paquetes.html">Bocas del Toro</a></li>
+        <li><a href="paquetes.html">San Blas</a></li>
+        <li><a href="paquetes.html">El Valle de Antón</a></li>
+        <li><a href="paquetes.html">Santa Catalina</a></li>
+        <li><a href="paquetes.html">Isla Contadora</a></li>
+        <li><a href="paquetes.html">Portobelo</a></li>
+        <li><a href="paquetes.html">Pedasí</a></li>
+      </ul>
+    </div>
+ 
+    <!-- Col 4 · Contacto -->
+    <div class="footer-col">
+      <h3 class="footer-col-title">Contacto</h3>
+ 
+      <div class="footer-contact-item">
+        <span class="contact-icon">📞</span>
+        <div>
+          <strong>WhatsApp</strong>
+          <span>+507 6335-1234</span>
+        </div>
+      </div>
+ 
+      <div class="footer-contact-item">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <strong>Email</strong>
+          <a href="mailto:hola@panamaturismo.pa">reservas@panamaturismo.pa</a>
+        </div>
+      </div>
+ 
+      <div class="footer-contact-item">
+        <span class="contact-icon">📍</span>
+        <div>
+          <strong>Oficina</strong>
+          <span>Marbella, Ciudad de Panamá</span>
+        </div>
+      </div>
+ 
+      <div class="footer-contact-item">
+        <span class="contact-icon">🕐</span>
+        <div>
+          <strong>Horario</strong>
+          <span>Lun – Vie · 8 am a 5 pm</span>
+        </div>
+      </div>
+    </div>
+ 
+  </div><!-- /footer-inner -->
+ 
+  <hr class="footer-divider">
+ 
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Panamá Turismo. Todos los derechos reservados.</p>
+    <div class="footer-legal">
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+      <span class="footer-license">Licencia turismo #PT-2026</span>
+    </div>
+  </div>
+ 
+</footer>
+
+<!--  scripts -->
 <script src="js/data.js"></script>
+<script src="js/index.js"></script>
+
 <script>
+    // Leer ID y buscar paquete
     const id = localStorage.getItem("paqueteId");
     const paquete = paquetes.find(p => p.id == id);
 
     if (paquete) {
         document.getElementById("imagen").src = paquete.imagen;
-
         document.getElementById("titulo").textContent = paquete.destino;
-
-        document.getElementById("descripcionGeneral").textContent =
-            "Descubre " + paquete.destino + ", ubicado en " + paquete.provincia +
-            ". " + paquete.descripcion;
-
+        document.getElementById("descripcionGeneral").textContent = paquete.descripcion;
         document.getElementById("destino").textContent = paquete.destino;
         document.getElementById("provincia").textContent = paquete.provincia;
         document.getElementById("precio").textContent = "$" + paquete.precio;
         document.getElementById("dias").textContent = paquete.dias + " días";
         document.getElementById("transporte").textContent = paquete.transporte.join(", ");
         document.getElementById("descripcion").textContent = paquete.descripcion;
-
     } else {
-        alert("Error cargando el paquete ");
+        alert("No se encontró el paquete. Vuelve a la página de paquetes.");
+        window.location.href = "paquetes.html";
     }
 </script>
+
 <script>
     function abrirFormulario() {
         document.getElementById("modalFormulario").style.display = "flex";
@@ -119,18 +232,13 @@
         document.getElementById("modalFormulario").style.display = "none";
     }
 
-    // Cerrar el modal si haces clic fuera de él
     window.onclick = function(event) {
         let modal = document.getElementById("modalFormulario");
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+        if (event.target == modal) modal.style.display = "none";
     }
-</script>
-<script>
+
     function guardarReserva(e) {
         e.preventDefault();
-
         const reserva = {
             nombre: document.getElementById("nombre").value,
             email: document.getElementById("email").value,
@@ -141,36 +249,15 @@
             destino: document.getElementById("destino").textContent
         };
 
-        // obtener reservas existentes
         let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
-
-        // agregar nueva
         reservas.push(reserva);
-
-        // guardar
         localStorage.setItem("reservas", JSON.stringify(reservas));
 
-        alert("Reserva guardada ✅");
-        // LIMPIAR FORMULARIO
+        alert("¡Reserva guardada! Nos pondremos en contacto contigo pronto.");
         document.querySelector(".formulario").reset();
-
         cerrarFormulario();
     }
 </script>
-
-<!-- ══════════════ FOOTER ══════════════ -->
-<footer>
-    <div class="footer-logo">🗺️ Panamá Turismo</div>
-    <p class="footer-copy">© 2026 Panamá Turismo. Todos los derechos reservados.</p>
-    <div class="footer-social">
-        <a href="#" title="Facebook">f</a>
-        <a href="#" title="Instagram">ig</a>
-        <a href="#" title="Twitter">tw</a>
-    </div>
-</footer>
-
-<!-- JS al final del body -->
-<script src="js/index.js"></script>
 
 </body>
 </html>

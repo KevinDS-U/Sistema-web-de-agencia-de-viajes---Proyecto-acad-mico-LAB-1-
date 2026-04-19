@@ -53,3 +53,25 @@ body {
     background: linear-gradient(90deg, #007BFF, #00c6ff);
     border-radius: 15px 15px 0 0;
 }
+/* ── Navbar en Admin ── */
+#navbar {
+    background: rgba(74, 104, 64, 0.95) !important;
+    border-bottom: 1px solid rgba(194, 159, 108, 0.3);
+}
+
+#navbar .nav-logo {
+    color: white !important;
+}
+
+#navbar .nav-links a {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+#navbar .nav-links a:hover {
+    color: white !important;
+}
+
+#navbar .nav-admin {
+    background: white !important;
+    color: var(--salvia-oscuro) !important;
+}

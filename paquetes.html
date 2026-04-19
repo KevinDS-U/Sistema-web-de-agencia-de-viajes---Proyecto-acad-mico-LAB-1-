@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/paquetesE.css">
     <link rel="stylesheet" href="css/index.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Paquetes de Viaje</title>
     <!--
     Archivo: paquetes.html
@@ -15,12 +17,12 @@
 </head>
 <body>
 <!-- ══════════════ NAVBAR ══════════════ -->
-<nav id="navbar">
+<nav id="navbarP">
     <a href="index.html" class="nav-logo">
         <span>🗺️</span> Panamá Turismo
     </a>
     <ul class="nav-links">
-        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="index.html">Inicio</a></li>
         <li><a href="paquetes.html">Paquetes</a></li>
         <li><a href="detalle.html">Detalles</a></li>
         <li><a href="contacto.html">Sobre Nosotros</a></li>
@@ -30,15 +32,127 @@
 <h1 style="text-align:center;">Paquetes Turísticos en Panamá</h1>
 
 <div id="contenedor" class="contenedor"></div>
-<!-- ══════════════ FOOTER ══════════════ -->
-<footer>
-    <div class="footer-logo">🗺️ Panamá Turismo</div>
-    <p class="footer-copy">© 2026 Panamá Turismo. Todos los derechos reservados.</p>
-    <div class="footer-social">
-        <a href="#" title="Facebook">f</a>
-        <a href="#" title="Instagram">ig</a>
-        <a href="#" title="Twitter">tw</a>
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="site-footer">
+ 
+  <div class="footer-inner">
+ 
+    <!-- Col 1 · Marca + Newsletter -->
+    <div class="footer-col footer-brand">
+      <a href="index.html" class="footer-logo">🗺️ Panamá Turismo</a>
+      <p class="footer-tagline">
+        Agencia panameña especializada en experiencias auténticas.
+        Conectamos viajeros con lo mejor del istmo desde 2018.
+      </p>
+      
+ <!-- REDES SOCIALES -->
+        <div class="footer-social">
+          <a href="https://www.facebook.com/?locale=es_LA" class="social-btn facebook" title="Facebook" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+
+          <a href="https://www.instagram.com/?hl=es" class="social-btn instagram" title="Instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <a href="https://www.tiktok.com/" class="social-btn tiktok" title="TikTok" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+
+          <a href="https://wa.me/50760000000" class="social-btn whatsapp" title="WhatsApp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+
+ 
+      <!-- Mini newsletter -->
+      <div class="footer-newsletter">
+        <p class="newsletter-label">Recibe ofertas y guías de viaje</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input type="email" placeholder="tu@correo.com" required aria-label="Correo electrónico">
+          <button type="submit">Suscribirse</button>
+        </form>
+        <p class="newsletter-thanks" id="newsletter-thanks" style="display:none;">¡Gracias! Te escribiremos pronto 🎉</p>
+      </div>
     </div>
+ 
+    <!-- Col 2 · Páginas -->
+    <div class="footer-col">
+      <h3 class="footer-col-title">Explorar</h3>
+      <ul class="footer-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="paquetes.html">Paquetes</a></li>
+        <li><a href="detalle.html">Detalles</a></li>
+        <li><a href="contacto.html">Sobre Nosotros</a></li>
+        <li><a href="admin.html">Iniciar sesión</a></li>
+      </ul>
+    </div>
+ 
+    <!-- Col 3 · Destinos -->
+    <div class="footer-col">
+      <h3 class="footer-col-title">Destinos</h3>
+      <ul class="footer-links">
+        <li><a href="paquetes.html">Boquete</a></li>
+        <li><a href="paquetes.html">Bocas del Toro</a></li>
+        <li><a href="paquetes.html">San Blas</a></li>
+        <li><a href="paquetes.html">El Valle de Antón</a></li>
+        <li><a href="paquetes.html">Santa Catalina</a></li>
+        <li><a href="paquetes.html">Isla Contadora</a></li>
+        <li><a href="paquetes.html">Portobelo</a></li>
+        <li><a href="paquetes.html">Pedasí</a></li>
+      </ul>
+    </div>
+ 
+    <!-- Col 4 · Contacto -->
+    <div class="footer-col">
+      <h3 class="footer-col-title">Contacto</h3>
+ 
+      <div class="footer-contact-item">
+        <span class="contact-icon">📞</span>
+        <div>
+          <strong>WhatsApp</strong>
+          <span>+507 6335-1234</span>
+        </div>
+      </div>
+ 
+      <div class="footer-contact-item">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <strong>Email</strong>
+          <a href="mailto:hola@panamaturismo.pa">reservas@panamaturismo.pa</a>
+        </div>
+      </div>
+ 
+      <div class="footer-contact-item">
+        <span class="contact-icon">📍</span>
+        <div>
+          <strong>Oficina</strong>
+          <span>Marbella, Ciudad de Panamá</span>
+        </div>
+      </div>
+ 
+      <div class="footer-contact-item">
+        <span class="contact-icon">🕐</span>
+        <div>
+          <strong>Horario</strong>
+          <span>Lun – Vie · 8 am a 5 pm</span>
+        </div>
+      </div>
+    </div>
+ 
+  </div><!-- /footer-inner -->
+ 
+  <hr class="footer-divider">
+ 
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Panamá Turismo. Todos los derechos reservados.</p>
+    <div class="footer-legal">
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+      <span class="footer-license">Licencia turismo #PT-2026</span>
+    </div>
+  </div>
+ 
 </footer>
 <!-- Scripts -->
 <!--Conectamos la Data a Los Detalles-->

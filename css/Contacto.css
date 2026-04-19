@@ -1,0 +1,319 @@
+· CSS
+Copy
+
+/* ═══════════════════════════════════════
+   Contacto.css — Página Sobre Nosotros
+   Archivo: css/Contacto.css
+═══════════════════════════════════════ */
+ 
+:root {
+    --salvia:        #829B72;
+    --salvia-oscuro: #4A6840;
+    --dorado:        #C29F6C;
+    --dorado-claro:  #E0C49A;
+    --crema:         #F4E1D2;
+    --crema-clara:   #FAF5EF;
+    --terracota:     #9C6644;
+    --negro:         #221A10;
+    --gris:          #7A7068;
+    --blanco:        #FFFFFF;
+}
+ 
+/* ── Reset ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+html { scroll-behavior: smooth; }
+ 
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--crema-clara);
+    color: var(--negro);
+    overflow-x: hidden;
+}
+ 
+
+/* ════════════════════════════════
+   NAVBAR — fondo salvia
+════════════════════════════════ */
+#navbarP {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(74, 104, 64, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+ 
+#navbarP.scrolled {
+    background: rgba(74, 104, 64, 0.97);
+    border-bottom: 1px solid rgba(194, 159, 108, 0.3);
+    box-shadow: 0 2px 24px rgba(34, 26, 16, 0.18);
+}
+ 
+#navbarP .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+ 
+#navbarP .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+}
+ 
+#navbarP .nav-links a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+ 
+#navbarP .nav-links a:hover {
+    color: white;
+}
+ 
+#navbarP .nav-links a.active {
+    color: white;
+    border-bottom: 2px solid var(--dorado);
+    padding-bottom: 2px;
+}
+ 
+#navbarP .nav-admin {
+    background: white;
+    color: var(--salvia-oscuro);
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+ 
+#navbarP .nav-admin:hover {
+    background: var(--dorado);
+    color: white;
+    transform: translateY(-1px);
+}
+ 
+/* ════════════════════════════════
+   HERO BANNER — encabezado sección
+════════════════════════════════ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1px 60px 80px;
+}
+ 
+.container > h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 900;
+    color: var(--salvia-oscuro);
+    text-align: center;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+}
+ 
+.container > h1::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: var(--dorado);
+    border-radius: 2px;
+    margin: 16px auto 0;
+}
+ 
+/* ════════════════════════════════
+   GRID DEL EQUIPO
+════════════════════════════════ */
+.equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 56px;
+}
+ 
+/* ════════════════════════════════
+   TARJETA DE PERFIL
+════════════════════════════════ */
+.tarjeta-perfil {
+    background: var(--blanco);
+    border-radius: 20px;
+    border: 2px solid #e8dfd5;
+    padding: 32px 24px 28px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+ 
+.tarjeta-perfil::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--salvia), var(--dorado));
+}
+ 
+.tarjeta-perfil:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px rgba(74, 56, 30, 0.14);
+    border-color: var(--dorado-claro);
+}
+ 
+/* Foto circular */
+.foto-perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 3px solid var(--dorado-claro);
+    margin-bottom: 16px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: border-color 0.3s;
+}
+ 
+.tarjeta-perfil:hover .foto-perfil {
+    border-color: var(--dorado);
+}
+ 
+/* Nombre */
+.tarjeta-perfil h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--negro);
+    margin-bottom: 2px;
+}
+ 
+/* Apellido */
+.apellido {
+    font-size: 15px;
+    color: var(--gris);
+    margin-bottom: 4px;
+    font-weight: 400;
+}
+ 
+/* Línea divisoria */
+.divider {
+    width: 40px;
+    height: 2px;
+    background: var(--dorado);
+    border-radius: 2px;
+    margin: 14px auto;
+}
+ 
+/* Info de contacto */
+.info-perfil {
+    text-align: left;
+    background: var(--crema-clara);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 4px;
+}
+ 
+.info-perfil p {
+    font-size: 13px;
+    color: var(--gris);
+    line-height: 1.7;
+}
+ 
+.info-perfil p strong {
+    color: var(--salvia-oscuro);
+    font-weight: 600;
+}
+ 
+/* Badge de rol */
+.info-perfil p:last-child {
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid #e8dfd5;
+}
+ 
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+footer {
+    background: var(--negro);
+    color: rgba(244, 225, 210, 0.65);
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+}
+ 
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--crema);
+}
+ 
+.footer-copy {
+    font-size: 14px;
+}
+ 
+.footer-social {
+    display: flex;
+    gap: 14px;
+}
+ 
+.footer-social a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(244, 225, 210, 0.1);
+    color: var(--crema);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+ 
+.footer-social a:hover {
+    background: var(--dorado);
+}
+ 
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 1024px) {
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+ 
+@media (max-width: 900px) {
+    #navbarP { padding: 16px 24px; }
+    #navbarP .nav-links { display: none; }
+    .container { padding: 100px 24px 60px; }
+    .equipo-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+}

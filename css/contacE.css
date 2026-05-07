@@ -8,19 +8,149 @@ body {
 /* Contenedor */
 .container {
     max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Título */
-h1 {
+
+
+/* ════════════════════════════════
+   HERO CONTACTO
+════════════════════════════════ */
+
+.contacto-hero {
+
+    min-height: 55vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
-    font-size: 36px;
-    margin-bottom: 50px;
-    color: #1f2937;
-    letter-spacing: 1px;
+
+    padding: 140px 20px 80px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #023E8A,
+                    #0077B6,
+                    #00B4D8
+            );
+
+    color: white;
+}
+
+.hero-contacto-content {
+
+    max-width: 850px;
+}
+
+.hero-mini {
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    color: rgba(255,255,255,0.7);
+
+    margin-bottom: 15px;
+}
+
+.contacto-hero h1 {
+
+    font-size: 72px;
+
+    margin-bottom: 20px;
+
     font-family: 'Playfair Display', serif;
 }
 
-/* Grid */
+.hero-texto {
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: rgba(255,255,255,0.85);
+}
+
+/* ════════════════════════════════
+   SOBRE PROYECTO
+════════════════════════════════ */
+
+.sobre-proyecto {
+
+    background: white;
+
+    padding: 80px 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.sobre-box {
+
+    max-width: 900px;
+
+    text-align: center;
+}
+
+.sobre-box h2 {
+
+    font-size: 42px;
+
+    margin-bottom: 30px;
+
+    color: #111827;
+
+    font-family: 'Playfair Display', serif;
+}
+
+.sobre-box p {
+
+    color: #4b5563;
+
+    line-height: 1.9;
+
+    margin-bottom: 20px;
+
+    font-size: 16px;
+}
+
+/* ════════════════════════════════
+   TITULO EQUIPO
+════════════════════════════════ */
+
+.titulo-equipo {
+
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+.titulo-equipo p {
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    color: #0077B6;
+
+    margin-bottom: 10px;
+}
+
+.titulo-equipo h1 {
+
+    font-size: 48px;
+
+    color: #111827;
+
+    font-family: 'Playfair Display', serif;
+}
+.titulo-equipo {
+    width: 100%;
+}
 
 
 /* Tarjeta perfil PRO */
@@ -53,7 +183,7 @@ h1 {
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-/* 📸 Imagen */
+/* Imagen */
 .foto-perfil {
     width: 130px;
     height: 130px;
@@ -63,7 +193,7 @@ h1 {
     border: 4px solid #007bff;
 }
 
-/* 👤 Nombre */
+/* Nombre */
 .tarjeta-perfil h2 {
     font-size: 20px;
     color: #111827;

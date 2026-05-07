@@ -1,77 +1,359 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+
     <link rel="stylesheet" href="css/adminE.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Administrador</title>
-    <!--
-    Archivo: admin.html
-    Descripción: Panel administrativo simulado para visualizar reservas.
-    -->
-</head>
-<body>
-<script>
-    const usuario = prompt("Usuario:");
-    const password = prompt("Contraseña:");
+    <link rel="stylesheet" href="css/footer.css">
 
-    if (usuario !== "utpds7" || password !== "1gs134") {
-        alert("Acceso denegado ");
-        window.location.href = "index.html"; // o index.html
-    }
-</script>
+    <title>Administrador</title>
+</head>
+
+<body>
+
 <!-- ══════════════ NAVBAR ══════════════ -->
 <nav id="navbar">
+
     <a href="index.html" class="nav-logo">
         <span>🗺️</span> Panamá Turismo
     </a>
+
     <ul class="nav-links">
-        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="index.html">Inicio</a></li>
         <li><a href="paquetes.html">Paquetes</a></li>
         <li><a href="detalle.html">Detalles</a></li>
         <li><a href="contacto.html">Sobre Nosotros</a></li>
     </ul>
-    <a href="admin.html" class="nav-admin">Admin/In ↗</a>
-</nav>
-<h1 style="text-align:center;"> Lista de Paquetes Reseravados</h1>
 
-<div id="reservas"></div>
+    <a href="admin.html" class="nav-admin">
+        Admin/In ↗
+    </a>
+
+</nav>
+
+<!-- ══════════════ LOGIN ══════════════ -->
+<div id="loginAdmin" class="login-container">
+
+    <div class="login-card">
+
+        <h2>Panel Administrativo</h2>
+
+        <p>Ingrese sus credenciales</p>
+
+        <input
+                type="text"
+                id="usuario"
+                placeholder="Usuario"
+        >
+
+        <input
+                type="password"
+                id="password"
+                placeholder="Contraseña"
+        >
+
+        <button onclick="login()">
+            Entrar
+        </button>
+
+        <p id="errorLogin"></p>
+
+    </div>
+
+</div>
+
+<!-- ══════════════ PANEL ADMIN ══════════════ -->
+<div id="panelAdmin" style="display:none;">
+
+    <h1>
+        Lista de Paquetes Reservados
+    </h1>
+
+    <!-- TOP ADMIN -->
+    <div class="top-admin">
+
+        <!-- TOTAL -->
+        <div class="resumen-card">
+
+            <h2 id="totalReservas">0</h2>
+
+            <span>Total Reservas</span>
+
+        </div>
+
+
+        <!-- FILTROS -->
+        <div class="filtros">
+
+            <select id="filtroDestino">
+
+                <option value="todos">
+                    Todos los destinos
+                </option>
+
+            </select>
+
+            <select id="filtroPersonas">
+
+                <option value="todos">
+                    Todas las personas
+                </option>
+
+                <option value="1">
+                    1 Persona
+                </option>
+
+                <option value="2">
+                    2 o más Personas
+                </option>
+
+            </select>
+
+        </div>
+        <!-- FECHA -->
+        <p id="fechaActual"></p>
+
+    </div>
+
+    <!-- TARJETAS -->
+    <div id="reservas"></div>
+
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-brand">
+            <h2>🗺️ Panamá Turismo</h2>
+
+            <p>
+                Descubre los mejores destinos turísticos de Panamá
+                con experiencias únicas e inolvidables.
+            </p>
+        </div>
+
+        <div class="footer-links">
+
+            <h3>Enlaces</h3>
+
+            <a href="index.html">Inicio</a>
+            <a href="paquetes.html">Paquetes</a>
+            <a href="contacto.html">Contacto</a>
+
+        </div>
+
+        <div class="footer-contacto">
+
+            <h3>Contacto</h3>
+
+            <p>📍 Ciudad de Panamá</p>
+            <p>📞 +507 6181-5221</p>
+            <p>✉️ infopanamaturismo@gmail.com</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-copy">
+        © 2026 Panamá Turismo — Todos los derechos reservados
+    </div>
+
+</footer>
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
 
 <script>
-    const contenedor = document.getElementById("reservas");
 
-    // Obtener reservas
-    let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+    /* LOGIN */
 
-    if (reservas.length === 0) {
-        contenedor.innerHTML = "<p>No hay reservas aún </p>";
-    } else {
-        reservas.forEach(r => {
+    function login() {
+
+        const usuario =
+            document.getElementById("usuario").value;
+
+        const password =
+            document.getElementById("password").value;
+
+        const error =
+            document.getElementById("errorLogin");
+
+        if(usuario === "kevin" &&
+            password === "1gs134") {
+
+            document.getElementById("loginAdmin")
+                .style.display = "none";
+
+            document.getElementById("panelAdmin")
+                .style.display = "block";
+
+        } else {
+
+            error.textContent =
+                "Usuario o contraseña incorrectos";
+        }
+    }
+
+    /* FECHA */
+
+    const fecha = new Date();
+
+    const opciones = {
+
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+
+    document.getElementById("fechaActual")
+        .textContent =
+        "Fecha : " +
+        fecha.toLocaleDateString('es-ES', opciones);
+
+    /* OBTENER RESERVAS */
+
+    let reservas =
+        JSON.parse(localStorage.getItem("reservas")) || [];
+
+    /* TOTAL */
+
+    document.getElementById("totalReservas")
+        .textContent = reservas.length;
+
+    /* FILTRO DESTINO */
+
+    const filtroDestino =
+        document.getElementById("filtroDestino");
+
+    const destinos =
+        [...new Set(reservas.map(r => r.destino))];
+
+    destinos.forEach(destino => {
+
+        filtroDestino.innerHTML += `
+
+            <option value="${destino}">
+                ${destino}
+            </option>
+
+        `;
+    });
+
+    /* MOSTRAR RESERVAS */
+
+    function mostrarReservas(lista) {
+
+        const contenedor =
+            document.getElementById("reservas");
+
+        contenedor.innerHTML = "";
+
+        if(lista.length === 0) {
+
+            contenedor.innerHTML =
+                "<p>No hay reservas</p>";
+
+            return;
+        }
+
+        lista.forEach(r => {
+
             contenedor.innerHTML += `
-        <div class="card-admin">
-          <h3>${r.destino}</h3>
-          <p><strong>Nombre:</strong> ${r.nombre}</p>
-          <p><strong>Email:</strong> ${r.email}</p>
-          <p><strong>Teléfono:</strong> ${r.telefono}</p>
-          <p><strong>Fecha:</strong> ${r.fecha}</p>
-          <p><strong>Personas:</strong> ${r.personas}</p>
-          <p><strong>Notas:</strong> ${r.notas}</p>
-        </div>
-      `;
+
+                <div class="card-admin">
+
+                    <h3>${r.destino}</h3>
+
+                    <p>
+                        <strong>Nombre:</strong>
+                        ${r.nombre}
+                    </p>
+
+                    <p>
+                        <strong>Email:</strong>
+                        ${r.email}
+                    </p>
+
+                    <p>
+                        <strong>Teléfono:</strong>
+                        ${r.telefono}
+                    </p>
+
+                    <p>
+                        <strong>Fecha:</strong>
+                        ${r.fecha}
+                    </p>
+
+                    <p>
+                        <strong>Personas:</strong>
+                        ${r.personas}
+                    </p>
+
+                    <p>
+                        <strong>Notas:</strong>
+                        ${r.notas}
+                    </p>
+
+                </div>
+
+            `;
         });
     }
+
+    /* MOSTRAR TODO AL INICIO */
+
+    mostrarReservas(reservas);
+
+    /* EVENTOS FILTROS */
+
+    document.getElementById("filtroDestino")
+        .addEventListener("change", filtrar);
+
+    document.getElementById("filtroPersonas")
+        .addEventListener("change", filtrar);
+
+    /* FILTRAR */
+
+    function filtrar() {
+
+        let filtradas = reservas;
+
+        const destino =
+            document.getElementById("filtroDestino").value;
+
+        const personas =
+            document.getElementById("filtroPersonas").value;
+
+        /* FILTRAR DESTINO */
+
+        if(destino !== "todos") {
+
+            filtradas = filtradas.filter(r =>
+                r.destino === destino
+            );
+        }
+
+        /* FILTRAR PERSONAS */
+
+        if(personas === "1") {
+
+            filtradas = filtradas.filter(r =>
+                Number(r.personas) === 1
+            );
+        }
+
+        if(personas === "2") {
+
+            filtradas = filtradas.filter(r =>
+                Number(r.personas) >= 2
+            );
+        }
+
+        mostrarReservas(filtradas);
+    }
+
 </script>
-<footer>
-    <div class="footer-logo">🗺️ Panamá Turismo</div>
-    <p class="footer-copy">© 2025 Panamá Turismo. Todos los derechos reservados.</p>
-    <div class="footer-social">
-        <a href="#" title="Facebook">f</a>
-        <a href="#" title="Instagram">ig</a>
-        <a href="#" title="Twitter">tw</a>
-    </div>
-</footer>
-<!-- SCRIPT PARA ABRIR/CERRAR EL MODAL -->
-<script src="js/data.js"></script>
-<script src="js/app.js"></script>
+
 </body>
 </html>
